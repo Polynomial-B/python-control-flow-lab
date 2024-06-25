@@ -151,8 +151,23 @@
 # Hints:
 # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
+
+#! Exercise 4: ANSWER
+
 # def weather_advice():
-#     # Your control flow logic goes here
+#     is_raining = input("is it raining?: yes/no ").lower()
+#     is_cold = input("is it cold?: yes/no ").lower()
+
+#     if is_raining == "yes" and is_cold == "yes":
+#         print("Wear a waterproof coat")
+#     elif is_raining == "yes" and not is_cold == "yes":
+#         print("Carry umbrella")
+#     elif not is_raining == "yes" and is_cold == "yes":
+#         print("Wear warm coat")
+#     else:
+#         print("Wear light clothes")
+
+
 
 # # Call the function
 # weather_advice()
@@ -179,8 +194,23 @@
 # - Adjust the season based on the day of the month when needed.
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
-# def determine_season():
-#     # Your control flow logic goes here
 
-# # Call the function
-# determine_season()
+#! Exercise 5:
+#! Incomplete......
+
+
+def determine_season():
+    day = input("Enter <DD>: ")
+    month = input("Enter month <MMM>: ")
+    season = ("Spring", "Summer", "Autumn", "Winter")
+
+                
+
+    print(f"The {day} of {month} is in {season}")
+
+
+
+
+
+# Call the function
+determine_season()
