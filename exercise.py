@@ -196,21 +196,79 @@
 
 
 #! Exercise 5:
-#! Incomplete......
-
 
 def determine_season():
-    day = input("Enter <DD>: ")
-    month = input("Enter month <MMM>: ")
-    season = ("Spring", "Summer", "Autumn", "Winter")
+    
+    month = input("Enter month <MMM>: ").strip().capitalize()
+    day = int(input("Enter <DD>: "))
+    season = None
+    
+    month_to_num = {
+        'Jan': 1, 'Feb': 2,
+        'Mar': 3, 'Feb': 4,
+        'May': 5, 'Feb': 6,
+        'Jul': 7, 'Feb': 8,
+        'Sep': 9, 'Feb': 10,
+        'Nov': 11, 'Feb': 12,
+    }
 
-                
+    if month not in month_to_num:
+        print("Invalid month, please enter a valid 3 character month")
+        return
+    
+    month_num = month_to_num[month]
+
+    if month_num in [1, 3, 4, 5, 6, 10, 12] and (day < 1 or day > 31):
+        print(f"Invalid day. {month} has 31 days.")
+        return
+    elif month_num in [4, 6, 9, 11] and (day < 1 or day > 30):
+        print(f"Invalid day. {month} has 30 days.")
+        return
+    elif month_num == 2 and (day < 1 or day > 29):
+        print(f"Invalid day. {month} has 28 or 29 days.")
+        return
+    
+    if (month == 'Dec' and day >=21) or month in ['Jan', 'Feb'] or (month == 'Mar' and day <= 19):
+        season = "winter"
+
+    elif (month == 'Mar' and day >=20) or month in ['Apr', 'May'] or (month == 'Jun' and day <= 20):
+            season = "spring"
+    elif (month == 'Jun' and day >=21) or month in ['Jul', 'Aug'] or (month == 'Sep' and day <= 21):
+        season = "summer"
+    elif (month == 'Sep' and day >=22) or month in ['Oct', 'Nov'] or (month == 'Dec' and day <= 20):
+        season = "summer"
+
 
     print(f"The {day} of {month} is in {season}")
 
-
-
-
-
 # Call the function
 determine_season()
+
+
+
+
+# Exercise 7: Number Guessing Game
+#
+# Write a Python function named `guess_number` that allows a user to guess a predetermined number within a range.
+#
+# Requirements:
+# - Set a fixed number as the target for guessing (e.g., 42).
+# - Prompt the user to guess a number within a range (e.g., 1 to 100).
+# - Allow the user to guess up to five times.
+# - After each guess, use conditional statements with AND, OR, and NOT to give the user hints like:
+#   - "Guess is too low" or "Guess is too high."
+#   - "Last chance!" when they are on their fifth guess.
+# - Print "Congratulations, you guessed correctly!" if they guess the number.
+# - Print "Sorry, you failed to guess the number in five attempts." if they do not succeed.
+#
+# Hints:
+# - Use a for loop with a range to limit guesses to five.
+# - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
+
+#! Exercise: Level Up
+
+# def guess_number():
+#     # Your control flow logic goes here
+
+# # Call the function
+# guess_number()
